@@ -6,10 +6,34 @@
 
 int main() {
     // Nível Novato - Posicionamento dos Navios
-    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
+    //### 1. Criar o tabuleiro 5x5 ###//
+   int tabuleiro[5][5];
 
+   //=== 2. Inicializar com água (0) ===//
+   for (int linha = 0; linha < 5; linha++) {
+       for(int coluna = 0; coluna < 5; coluna++){
+          tabuleiro[linha][coluna] = 0;
+       }
+   }
+
+   //--- 3. Navio horizontal (tamanho 3) ---//
+   tabuleiro[1][1] = 3;
+   tabuleiro[1][2] = 3;
+   tabuleiro[1][3] = 3;
+
+   //*** 4. Navio vertical (tamanho 3) ***//
+   tabuleiro[1][4] = 3;
+   tabuleiro[2][4] = 3;
+   tabuleiro[3][4] = 3;
+
+
+    // Exibir o tabuleiro
+    for (int linha = 0; linha < 5; linha++) {
+       for(int coluna = 0; coluna < 5; coluna++){
+          printf("%d ", tabuleiro[linha][coluna]);
+       }
+       printf("\n");
+    }
     // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
     // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
     // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
