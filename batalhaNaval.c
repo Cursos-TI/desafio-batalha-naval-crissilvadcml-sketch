@@ -5,31 +5,49 @@
 // Siga os comentários para implementar cada parte do desafio.
 
 int main() {
-    // Nível Novato - Posicionamento dos Navios
-    //### 1. Criar o tabuleiro 5x5 ###//
-   int tabuleiro[5][5];
+    //  Posicionamento dos Navios
+    //### 1. Criar o tabuleiro 10x10 ###//
+   int tabuleiro[10][10];
 
    //=== 2. Inicializar com água (0) ===//
-   for (int linha = 0; linha < 5; linha++) {
-       for(int coluna = 0; coluna < 5; coluna++){
+   for (int linha = 0; linha < 10; linha++) {
+       for(int coluna = 0; coluna < 10; coluna++){
           tabuleiro[linha][coluna] = 0;
        }
    }
 
-   //--- 3. Navio horizontal (tamanho 3) ---//
-   tabuleiro[1][1] = 3;
-   tabuleiro[1][2] = 3;
-   tabuleiro[1][3] = 3;
+   //--- 3. Navio horizontal ---//
+   for(int i = 0; i < 3; i++) {
+      if(tabuleiro[2][1 + i] == 0){
+         tabuleiro[2][1 + i] = 3;
+      }
+   }
 
-   //*** 4. Navio vertical (tamanho 3) ***//
-   tabuleiro[1][4] = 3;
-   tabuleiro[2][4] = 3;
-   tabuleiro[3][4] = 3;
+   //*** 4. Navio vertical ***//
+   for(int i = 0; i < 3; i++){
+      if(tabuleiro[4 + i][6] == 0){
+         tabuleiro[4 + i][6] = 3;
+      }
+   }
+
+   // Navio diagonal principal //
+   for(int i = 0; i < 3; i++) {
+      if(tabuleiro[i][i] == 0) {
+         tabuleiro[i][i] = 3;
+      }
+   }
 
 
+
+   // Navio diagonal secundaria //
+   for(int i = 0; i < 3; i++){
+      if(tabuleiro[1 + i][8 - i] == 0){
+         tabuleiro[1 + i][8 - i] = 3;
+      }
+   } 
     // Exibir o tabuleiro
-    for (int linha = 0; linha < 5; linha++) {
-       for(int coluna = 0; coluna < 5; coluna++){
+    for (int linha = 0; linha < 10; linha++) {
+       for(int coluna = 0; coluna < 10; coluna++){
           printf("%d ", tabuleiro[linha][coluna]);
        }
        printf("\n");
